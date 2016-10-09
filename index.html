@@ -31,24 +31,20 @@
 The following functionality will be provided by the 2nd & 3rd dependency.</p>
 <p><u><i>Example 1 - JSON</i></u><p>
 <p>Assume that the GET request (to http://localhost:8080/lotto) returns JSON as:</p>
-<p>{</p>
-<p>"lotto":{</p>
-<p> "lottoId":5,</p>
-<p> "winning-numbers":[2,45,34,23,7,5,3],</p>
-<p> "winners":[{</p>
-<p>"winnerId":23,</p>
-<p>"numbers":[2,45,34,23,3,5]</p>
-<p> },{</p>
-<p>"winnerId":54,</p>
-<p>"numbers":[52,3,12,11,18,22]</p>
-<p> }]</p>
-<p>}</p>
-<p>}</p>
-<p>
-Testing brow.
-		Testing brow
-				Testing brow
-</p>
+  <p>{</p>
+  <p>"lotto":{</p>
+  <p> "lottoId":5,</p>
+  <p> "winning-numbers":[2,45,34,23,7,5,3],</p>
+  <p> "winners":[{</p>
+  <p>"winnerId":23,</p>
+  <p>"numbers":[2,45,34,23,3,5]</p>
+  <p> },{</p>
+  <p>"winnerId":54,</p>
+  <p>"numbers":[52,3,12,11,18,22]</p>
+  <p> }]</p>
+  <p>}</p>
+  <p>}</p>
+
 <p>REST assured can then help you to easily make the GET request and verify the response. E.g. if you want to verify that lottoId is equal to 5 you can do like this:</p>
 <p><b>get("/lotto").then().body("lotto.lottoId", equalTo(5));</b></p>
 <p>or perhaps you want to check that the winnerId's are 23 and 54:</p>
