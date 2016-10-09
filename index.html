@@ -31,19 +31,23 @@
 The following functionality will be provided by the 2nd & 3rd dependency.</p>
 <p><u><i>Example 1 - JSON</i></u><p>
 <p>Assume that the GET request (to http://localhost:8080/lotto) returns JSON as:</p>
-<p>{</br>
- "lotto":{</br>
-"lottoId":5,</br>
-"winning-numbers":[2,45,34,23,7,5,3],</br>
-"winners":[{</br>
-"winnerId":23,</br>
-"numbers":[2,45,34,23,3,5]</br>
-},{</br>
-"winnerId":54,</b>r
-"numbers":[52,3,12,11,18,22]</br>
-}]</br>
-}</br>
-}</p>
+<p>
+<dl>
+  <dd>{</br>
+  <dd>"lotto":{</br>
+  <dd>"lottoId":5,</br>
+  <dd>"winning-numbers":[2,45,34,23,7,5,3],</br>
+  <dd>"winners":[{</br>
+  <dd>"winnerId":23,</br>
+  <dd>"numbers":[2,45,34,23,3,5]</br>
+  <dd>},{</br>
+  <dd>"winnerId":54,</b>r
+  <dd>"numbers":[52,3,12,11,18,22]</br>
+  <dd>}]</br>
+  <dd>}</br>
+  <dd>}
+</dl>
+</p>
 
 <p>REST assured can then help you to easily make the GET request and verify the response. E.g. if you want to verify that lottoId is equal to 5 you can do like this:</p>
 <p><b>get("/lotto").then().body("lotto.lottoId", equalTo(5));</b></p>
