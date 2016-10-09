@@ -29,7 +29,28 @@
 <p><img src="images/Json-xml-path.JPG" width="309" height="210" alt="" title="" /></p>
 <p>If you Add the 1st dependency the 2nd & 3rd will be automatically added. No need to add them separately. Also you can download only 2nd or only 3rd without downloading 1st one.
 The following functionality will provide the 2nd & 3rd dependency.</p>
-<p><img src="images/json-example01.JPG" width="309" height="210" alt="" title="" /></p>
+<p>Example 1 - JSON<p>
+<p>Assume that the GET request (to http://localhost:8080/lotto) returns JSON as:</p>
+
+<p>{</p>
+<p>"lotto":{</p>
+<p> "lottoId":5,</p>
+<p> "winning-numbers":[2,45,34,23,7,5,3],</p>
+<p> "winners":[{</p>
+   <p>"winnerId":23,</p>
+   <p>"numbers":[2,45,34,23,3,5]</p>
+<p> },{</p>
+   <p>"winnerId":54,</p>
+   <p>"numbers":[52,3,12,11,18,22]</p>
+<p> }]</p>
+<p>}</p>
+<p>}</p>
+<p>REST assured can then help you to easily make the GET request and verify the response. E.g. if you want to verify that lottoId is equal to 5 you can do like this:</p>
+<p><b>get("/lotto").then().body("lotto.lottoId", equalTo(5));</b></p>
+<p>or perhaps you want to check that the winnerId's are 23 and 54:</p>
+<p><b>get("/lotto").then().body("lotto.winners.winnerId", hasItems(23, 54));</b></p>
+<p>Note: equalTo and hasItems are Hamcrest matchers which you should statically import from org.hamcrest.Matchers.</p>
+<p>Note that the "json path" syntax uses Groovy's GPath notation and is not to be confused with Jayway's JsonPath syntax.></p>
 
 
 
